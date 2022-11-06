@@ -7,7 +7,7 @@ $page_contents = file_get_contents($siteUrl);
 
 if ($page_contents !== FALSE && !empty($page_contents)) {
 
-	$connect = mysqli_connect("localhost","root","","busfair_main_database") or die('Could not connect: ' . mysql_error());
+	//$connect = mysqli_connect("localhost","root","","busfair_main_database") or die('Could not connect: ' . mysql_error());
 	
 	// extract bus route details
 	$bus_details = explode('<div class="accordion" id="BusRouteAccordion">', $page_contents);
@@ -51,39 +51,79 @@ if ($page_contents !== FALSE && !empty($page_contents)) {
 	$str = implode(", ", $str);
 	//$str = explode(" [ ", $str);
 	$str = explode(', [', $str);
-	$str = implode(", ", $str); // string data
-	$str = array($str);
-	//print_r($str[0]);
-	//echo json_encode($str[0]);
+	$str = implode(", ", $str);
+	print_r($str);
 	//echo json_encode($str);
 
-	foreach ($str as $row) {
 
-		$allData = $row;
-		//$uniqueData = array_unique($allData); 
-	}
-	//print_r (json_decode($allData));
-	$palceNameDate = (json_decode($allData));
-	//print_r ($palceNameDate);
 
-	foreach ($palceNameDate as $row2) {
 
-		//echo $row["busName"];
-		//echo "\n";
-		$allData2[] = $row2;
-		$uniqueData = array_unique($allData2); 
-	}
-	//echo json_encode($uniqueData);
 
-	foreach ($uniqueData as $row3) {
 
-		//echo $row3;
-		// uncomment to execute
-		$sql = "INSERT INTO all_places (placeNameEn, placeNameBn) VALUES ('$row3', '')";
-		mysqli_query($connect, $sql);
-	}
+
+
+
+
+
+
+
+
+
+
+
 
 	
+/*
+	foreach ($bus_route_details as $row) {
+
+		echo $row;
+
+	}
+*/
+
+
+
+	/*
+
+	foreach ($bus_route_details as $row) {
+
+		//print_r($row);
+
+		echo $row->placeName;
+
+		//$placeName = json_encode($row["placeName"]);
+		//$arrayMerge = array_merge(($placeName));
+		//echo $arrayMerge;
+
+
+
+		//echo json_encode($row["placeName"]);
+		//$placeName = json_encode($row["placeName"]);
+
+		//echo "\n";
+		/*
+		$allData[] = $row["placeName"];
+		$uniqueData = array_unique($allData); 
+		*/
+
+		//$arrayMerge = array_merge(array($placeName));
+
+		//echo json_encode($arrayMerge);
+
+	//}
+
+/*
+	foreach ($arrayMerge as $row2) {
+
+		//echo json_encode($row2);
+
+		// uncomment to execute
+		//$sql = "INSERT INTO all_buses (busNameEn, busNameBn) VALUES ('$row2', '')";
+		//mysqli_query($connect, $sql);
+	}
+
+	//echo json_encode($uniqueData);
+*/
 
 }
 

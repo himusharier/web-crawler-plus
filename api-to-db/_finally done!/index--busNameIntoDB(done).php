@@ -40,11 +40,11 @@ if ($page_contents !== FALSE && !empty($page_contents)) {
 	}
 
 	//echo json_encode($allData);
-	echo json_encode($uniqueData);
+	//echo json_encode($uniqueData);
 
 	foreach ($uniqueData as $row2) {
 
-		//echo $row2;
+		echo $row2;
 		// uncomment to execute
 		//$sql = "INSERT INTO all_buses (busNameEn, busNameBn) VALUES ('$row2', '')";
 		//mysqli_query($connect, $sql);

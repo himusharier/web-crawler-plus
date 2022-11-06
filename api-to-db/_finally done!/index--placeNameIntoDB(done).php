@@ -77,10 +77,10 @@ if ($page_contents !== FALSE && !empty($page_contents)) {
 
 	foreach ($uniqueData as $row3) {
 
-		//echo $row3;
+		echo $row3;
 		// uncomment to execute
-		$sql = "INSERT INTO all_places (placeNameEn, placeNameBn) VALUES ('$row3', '')";
-		mysqli_query($connect, $sql);
+		//$sql = "INSERT INTO all_places (placeNameEn, placeNameBn) VALUES ('$row3', '')";
+		//mysqli_query($connect, $sql);
 	}
 
 	
